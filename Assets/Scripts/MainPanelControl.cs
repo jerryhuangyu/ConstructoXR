@@ -14,16 +14,16 @@ public class MainPanelControl : MonoBehaviour
     [Header("Ros Command")]
     [SerializeField] private GameObject RosCommandPanel; // ros command panel
     [SerializeField] private GameObject RosCommandPanelButton; // btn for ros command panel
+    [Header("Ros Controller")]
+    [SerializeField] private GameObject RobotControllerPanel; // ros controller panel
+    [SerializeField] private GameObject RobotControllerPanelButton; // btn for ros controller panel
+
 
     static private bool isIpPanelOpen = false;
     private bool isWorldRotatePanelOpen = false;
     private bool isRosCommandPanelOpen = false;
+    private bool isRosControllerPanelOpen = false;
 
-    [Header("Other")]
-    [SerializeField]
-    private Interactable handMeshButton = null;
-    [SerializeField]
-    private Interactable handJointsButton = null;
 
     private void Start()
     {
@@ -31,13 +31,13 @@ public class MainPanelControl : MonoBehaviour
         ipPanelButton.GetComponent<Interactable>().IsToggled = false;
         worldRotatePanelButton.GetComponent<Interactable>().IsToggled = false;
         RosCommandPanelButton.GetComponent<Interactable>().IsToggled = false;
-        handMeshButton.IsToggled = false;
-        handJointsButton.IsToggled = false;
+        RobotControllerPanelButton.GetComponent<Interactable>().IsToggled = false;
 
         // subscribe event
         AppEvents.current.onTriggerIpPanel += TriggerRosIpSettingPanel;
         AppEvents.current.onTriggerWorldRotatePanel += TriggerWorldRotatePanel;
         AppEvents.current.onTriggerRosCommandPanel += TriggerRosCommandPanel;
+        AppEvents.current.onTriggerRosControlPanel += TriggerRosControllerPanel;
     }
 
     public void TriggerRosIpSettingPanel()
@@ -53,5 +53,9 @@ public class MainPanelControl : MonoBehaviour
     public void TriggerRosCommandPanel()
     {
         isRosCommandPanelOpen = Panel.Toggle(isRosCommandPanelOpen, RosCommandPanel, RosCommandPanelButton);
+    }
+    public void TriggerRosControllerPanel()
+    {
+        isRosControllerPanelOpen = Panel.Toggle(isRosControllerPanelOpen, RobotControllerPanel, RobotControllerPanelButton);
     }
 }

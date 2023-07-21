@@ -109,7 +109,7 @@ public class Marker : MonoBehaviour, IMixedRealityPointerHandler
 
     private bool IsMapExist()
     {
-        if (GameObject.Find("map") != null)
+        if (GameObject.Find("RosMap") != null)
             return true;
         else 
             return false;

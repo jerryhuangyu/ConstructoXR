@@ -10,7 +10,7 @@ namespace RosMessageTypes.Resources
     [Serializable]
     public class AddTwoIntsResponse : Message
     {
-        public const string k_RosMessageName = "actionmove/AddTwoInts";
+        public const string k_RosMessageName = "Resources/AddTwoInts";
         public override string RosMessageName => k_RosMessageName;
 
         public long sum;

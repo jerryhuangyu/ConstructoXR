@@ -23,6 +23,7 @@ namespace XrRover
         public static float totalRotateAngle = 0.0f;
 
         public static bool needMapShow = true;
+        public static bool needRobotShow = false;
 
         void Start()
         {

@@ -8,45 +8,39 @@ using Unity.Robotics.ROSTCPConnector.MessageGeneration;
 namespace RosMessageTypes.Resources
 {
     [Serializable]
-    public class AddTwoIntsRequest : Message
+    public class CheckScheduleRequest : Message
     {
-        public const string k_RosMessageName = "Resources/AddTwoInts";
+        public const string k_RosMessageName = "xrrover_backend/CheckSchedule";
         public override string RosMessageName => k_RosMessageName;
 
-        public long a;
-        public long b;
+        public string zone;
 
-        public AddTwoIntsRequest()
+        public CheckScheduleRequest()
         {
-            this.a = 0;
-            this.b = 0;
+            this.zone = "";
         }
 
-        public AddTwoIntsRequest(long a, long b)
+        public CheckScheduleRequest(string zone)
         {
-            this.a = a;
-            this.b = b;
+            this.zone = zone;
         }
 
-        public static AddTwoIntsRequest Deserialize(MessageDeserializer deserializer) => new AddTwoIntsRequest(deserializer);
+        public static CheckScheduleRequest Deserialize(MessageDeserializer deserializer) => new CheckScheduleRequest(deserializer);
 
-        private AddTwoIntsRequest(MessageDeserializer deserializer)
+        private CheckScheduleRequest(MessageDeserializer deserializer)
         {
-            deserializer.Read(out this.a);
-            deserializer.Read(out this.b);
+            deserializer.Read(out this.zone);
         }
 
         public override void SerializeTo(MessageSerializer serializer)
         {
-            serializer.Write(this.a);
-            serializer.Write(this.b);
+            serializer.Write(this.zone);
         }
 
         public override string ToString()
         {
-            return "AddTwoIntsRequest: " +
-            "\na: " + a.ToString() +
-            "\nb: " + b.ToString();
+            return "CheckScheduleRequest: " +
+            "\nzone: " + zone.ToString();
         }
 
 #if UNITY_EDITOR

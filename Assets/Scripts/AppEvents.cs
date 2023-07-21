@@ -14,6 +14,7 @@ public class AppEvents : MonoBehaviour
     public event Action onTriggerIpPanel;
     public event Action onTriggerWorldRotatePanel;
     public event Action onTriggerRosCommandPanel;
+    public event Action onTriggerRosControlPanel;
     public event Action<SliderEventData> onWorldRotateYawSliderTrigger;
     public event Action<SliderEventData> onWorldRotateDirXSliderTrigger;
     public event Action<SliderEventData> onWorldRotateDirZSliderTrigger;
@@ -34,13 +35,71 @@ public class AppEvents : MonoBehaviour
     public event Action onIpNumpadBackspaceTrigger;
     public event Action onIpNumpadCloseTrigger;
 
+    public event Action onRobotControlForwardTrigger;
+    public event Action onRobotControlBackwardTrigger;
+    public event Action onRobotControlRightTrigger;
+    public event Action onRobotControlLeftTrigger;
+    public event Action onRobotControlClockwiseTrigger;
+    public event Action onRobotControlCounterClockwiseTrigger;
+    public event Action onRobotControlStopTrigger;
+
     // function panel relative trigger
     public event Action onPlaceNavGoalTrigger;
     public event Action onPublishNavGoalTrigger;
     public event Action onDrawMapTrigger;
     public event Action onPublishUpdateMapTrigger;
     public event Action onMapVisualOptionTrigger;
+    public event Action onRobotVisualOptionTrigger;
 
+    public void RobotControlForwardTrigger()
+    {
+        if (onRobotControlForwardTrigger != null)
+        {
+            onRobotControlForwardTrigger();
+        }
+    }
+    public void RobotControlBackwardTrigger()
+    {
+        if (onRobotControlBackwardTrigger != null)
+        {
+            onRobotControlBackwardTrigger();
+        }
+    }
+    public void RobotControlRightTrigger()
+    {
+        if (onRobotControlRightTrigger != null)
+        {
+            onRobotControlRightTrigger();
+        }
+    }
+    public void RobotControlLeftTrigger()
+    {
+        if (onRobotControlLeftTrigger != null)
+        {
+            onRobotControlLeftTrigger();
+        }
+    }
+    public void RobotControlClockwiseTrigger()
+    {
+        if (onRobotControlClockwiseTrigger != null)
+        {
+            onRobotControlClockwiseTrigger();
+        }
+    }
+    public void RobotControlCounterClockwiseTrigger()
+    {
+        if (onRobotControlCounterClockwiseTrigger != null)
+        {
+            onRobotControlCounterClockwiseTrigger();
+        }
+    }
+    public void RobotControlStopTrigger()
+    {
+        if (onRobotControlStopTrigger != null)
+        {
+            onRobotControlStopTrigger();
+        }
+    }
     public void TriggerIpPanel()
     {
         if (onTriggerIpPanel != null)
@@ -60,6 +119,13 @@ public class AppEvents : MonoBehaviour
         if (onTriggerRosCommandPanel != null)
         {
             onTriggerRosCommandPanel();
+        }
+    }
+    public void TriggerRosControlPanel()
+    {
+        if (onTriggerRosControlPanel != null)
+        {
+            onTriggerRosControlPanel();
         }
     }
     public void WorldRotateYawTrigger(SliderEventData eventData)
@@ -235,4 +301,12 @@ public class AppEvents : MonoBehaviour
         }
     }
     
+    public void RobotVisualOptionTrigger()
+    {
+        if (onRobotVisualOptionTrigger != null)
+        {
+            onRobotVisualOptionTrigger();
+        }
+    }
+
 }
